@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Romantic Dark Theme */
+    --background: 10 15% 8%;
+    --foreground: 320 30% 95%;
+
+    --card: 320 25% 12%;
+    --card-foreground: 320 30% 95%;
+
+    --popover: 320 25% 12%;
+    --popover-foreground: 320 30% 95%;
+
+    /* Pink Romance Colors */
+    --primary: 320 85% 60%;
+    --primary-foreground: 320 30% 95%;
+    --primary-glow: 320 100% 70%;
+    --primary-soft: 320 60% 50%;
+
+    --secondary: 330 70% 40%;
+    --secondary-foreground: 320 30% 95%;
+
+    --romantic-pink: 325 85% 65%;
+    --romantic-rose: 340 80% 55%;
+    --romantic-blush: 350 70% 75%;
+    --romantic-deep: 310 90% 45%;
+
+    --muted: 320 20% 15%;
+    --muted-foreground: 320 25% 65%;
+
+    --accent: 320 85% 60%;
+    --accent-foreground: 320 30% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 320 30% 95%;
+
+    --border: 320 30% 20%;
+    --input: 320 30% 18%;
+    --ring: 320 85% 60%;
+
+    /* Romantic Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(var(--romantic-pink)), hsl(var(--romantic-rose)));
+    --gradient-heart: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--romantic-blush)));
+    --gradient-glow: radial-gradient(circle, hsl(var(--primary-glow) / 0.3), transparent);
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(320 20% 5%));
+
+    /* Shadows & Effects */
+    --shadow-romantic: 0 10px 40px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.5);
+    --shadow-heart: 0 5px 20px hsl(var(--romantic-pink) / 0.4);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: var(--gradient-background);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Custom romantic scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, hsl(var(--romantic-pink)), hsl(var(--romantic-rose)));
+    border-radius: 4px;
+    box-shadow: 0 0 10px hsl(var(--primary-glow) / 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, hsl(var(--primary-glow)), hsl(var(--romantic-blush)));
+    box-shadow: 0 0 15px hsl(var(--primary-glow) / 0.5);
+  }
+
+  /* Firefox scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--romantic-pink)) hsl(var(--background));
+  }
+
+  /* Import romantic fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap');
+}
+
+@layer components {
+  /* Romantic animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-heart-beat {
+    animation: heart-beat 1.5s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-romantic-fade-in {
+    animation: romantic-fade-in 1s ease-out forwards;
+  }
+
+  /* Background effects */
+  .romantic-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--gradient-glow);
+    opacity: 0.6;
+    z-index: -1;
+    animation: glow-rotate 10s linear infinite;
+  }
+
+  /* Button variants */
+  .btn-romantic {
+    @apply bg-gradient-to-r from-romantic-pink to-romantic-rose text-white font-medium px-6 py-3 rounded-full shadow-romantic hover:shadow-glow transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-heart {
+    @apply bg-gradient-to-r from-primary to-romantic-blush text-white font-medium px-8 py-4 rounded-full shadow-heart hover:shadow-glow transition-all duration-300 transform hover:scale-110;
+  }
+
+  /* Text effects */
+  .text-romantic {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.8);
+  }
+
+  .handwriting {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .cute-writing {
+    font-family: 'Caveat', cursive;
+  }
+}
+
+@layer utilities {
+  /* Keyframe animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
+  }
+
+  @keyframes pulse-glow {
+    0% { text-shadow: 0 0 10px hsl(var(--primary) / 0.3); }
+    100% { text-shadow: 0 0 20px hsl(var(--primary-glow) / 0.6); }
+  }
+
+  @keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+
+  @keyframes romantic-fade-in {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes glow-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Floating hearts animation */
+  @keyframes floating-hearts {
+    0% { 
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { 
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .animate-floating-hearts {
+    animation: floating-hearts 8s linear infinite;
+  }
+}
